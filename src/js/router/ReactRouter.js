@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import {GeneratePage} from "../components/GeneratePage";
+import {GeneratePage} from "../components/GeneratePage/GeneratePage";
 
 export default () => {
     return (

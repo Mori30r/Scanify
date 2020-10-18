@@ -1,7 +1,7 @@
 
 ## **scanify**
 
-hey :) This is a QR Code Scanner and Generator with React.
+hey :) This is a QR Code Scanner and Generator with React using Styled Components .
 
 ### **Installation**
 

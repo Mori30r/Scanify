@@ -33,4 +33,20 @@ color: ${props => props.theme["lightText"]};
 border: none;
 font-weight: bold;
 width: 50%;
+transition: all .3s;
+backface-visibility: hidden;
+outline: none;
+
+&:hover{
+transform: translateY(-.5rem);
+-webkit-transform: translateY(-.5rem);
+-moz-transform: translateY(-.5rem) rotate(0.02deg);
+}
+
+&:active{
+transform: translateY(.2rem);
+-webkit-transform: translateY(.2rem);
+-moz-transform: translateY(.2rem) rotate(0.02deg);
+box-shadow: 0 0 5rem rgba(255, 116, 241, .8);
+}
 `;

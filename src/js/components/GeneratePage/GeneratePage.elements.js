@@ -45,6 +45,12 @@ border-radius: 3rem;
 background-color: ${props => props.theme["primaryColorLight"]};
 flex: 1;
 margin-left: 3rem;
+transition: all .3s;
+backface-visibility: hidden;
+&:hover{
+box-shadow: 0 1rem 2rem rgba(0, 0, 0, .3);
+transform: scale(1.01);
+}
 `;
 export const QrOptionsSection = styled.div`
 height: 100%;
@@ -63,6 +69,13 @@ border-radius: 3rem;
 padding: 1rem 2rem;
 width: 60%;
 margin: 0 auto;
+transition: all .1s;
+backface-visibility: hidden;
+
+&:hover{
+transform: rotate(-2deg);
+box-shadow: 0 0 2rem rgba(57, 57, 57, .2);
+}
 `;
 export const Input = styled.input`
 text-align: center;
@@ -71,6 +84,7 @@ background-color: ${ props => props.theme["lightText"]};
 color: ${ props => props.theme["darkText"]};
 border:none;
 border-radius: 2rem;
+transition: all .2s;
 padding: ${(props)=>{
     if(props.padding){
         return `${props.padding}rem`;
@@ -84,6 +98,9 @@ color: ${ props => props.theme["thinText"]};
 }
 :-ms-input-placeholder {
 color: ${ props => props.theme["thinText"]};
+}
+&:focus{
+transform: scale(.9);
 }
 `;
 export const PickColorDiv = styled.div`

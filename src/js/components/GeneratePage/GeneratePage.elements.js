@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Generate = styled.div`
 height: 80vh;
-padding: 2rem;
+padding: 0 2rem;
 display: flex;
 justify-content: space-around;
 `;
@@ -56,7 +56,7 @@ export const QrOptionsSection = styled.div`
 height: 100%;
 display: flex;
 flex-direction: column;
-justify-content: space-around;
+justify-content: space-evenly;
 padding: 0 2rem;
 `;
 export const QrOptionsSectionHeading = styled.div`
@@ -66,7 +66,7 @@ color: ${ props => props.theme["darkText"]};
 background-color: ${ props => props.theme["lightText"]};
 font-weight: 600;
 border-radius: 3rem;
-padding: 1rem 2rem;
+padding: 2rem;
 width: 60%;
 margin: 0 auto;
 transition: all .1s;
@@ -78,6 +78,7 @@ box-shadow: 0 0 2rem rgba(57, 57, 57, .2);
 }
 `;
 export const Input = styled.input`
+outline: none;
 text-align: center;
 font-family: 'Open Sans',sans-serif;
 background-color: ${ props => props.theme["lightText"]};
@@ -105,9 +106,8 @@ transform: scale(.9);
 `;
 export const PickColorDiv = styled.div`
 display: flex;
-justify-content: space-around;
 align-items: end;
-padding: 0 2rem;
+padding: 0 1rem;
 `;
 export const SelectColorDiv = styled.div`
 flex: 1;
@@ -133,5 +133,5 @@ padding: 2.5rem 0 1rem 0;
 export const SubmitButtonDiv = styled.div`
 display: flex;
 justify-content: center;
-padding-top: 2.5rem;
+padding-top: 4rem;
 `;

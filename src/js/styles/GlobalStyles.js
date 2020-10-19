@@ -54,7 +54,7 @@ box-shadow: 0 0 3rem rgba(255, 116, 241, .8);
 export const ParentDiv = styled.div`
 display: flex;
 flex-direction: column;
-justify-content: space-between;
+justify-content: space-around;
 height: 100vh;
 padding: 1rem;
 `;

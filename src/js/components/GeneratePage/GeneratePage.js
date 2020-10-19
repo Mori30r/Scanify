@@ -10,7 +10,6 @@ import {
 import Select from "react-select";
 
 
-
 export const GeneratePage = () => {
     const options = [
         { value: '#ff7474', label: '🔴 Red' },
@@ -36,7 +35,7 @@ export const GeneratePage = () => {
         <Generate>
             <GeneratedSection>
                 <GeneratedSectionInfo>
-                    <QrImage url={url}/>
+                    <QrImage url={'url'}/>
                         <SuccessQRText>
                             Generated QR Code With: <br/>
                             www.loremipsum.io/

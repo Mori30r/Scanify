@@ -9,7 +9,7 @@ import { ReactComponent as InfoIcon  } from "../../../assets/icons/info.svg";
 import { ReactComponent as QRIcon  } from "../../../assets/icons/qr.svg";
 import { ReactComponent as ScanIcon  } from "../../../assets/icons/scan.svg";
 
-const iconStyle = {
+export const iconStyle = {
     width: '2.5rem',
     height: '2.5rem',
 }

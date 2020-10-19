@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {
     Input,
     InputLabel,
@@ -23,21 +23,22 @@ const options = [
 
 export const QrOptionsForm = () => {
 
-    const [data, setData] = useState(undefined);
-    const [backgroundColor, setBackgroundColor] = useState(undefined);
+    const [text, setText] = useState(undefined);
+    const [hexCode, setHexCode] = useState(undefined);
     const [selectedOption, setSelectedOption] = useState('');
 
-    useEffect(() => {
-        return console.log(selectedOption)
-    }, [selectedOption]);
+    const handleSubmitForm = (e) => {
+        e.preventDefault();
+        e.target.reset();
+    }
+
 
     return (
-        <form>
+        <form onSubmit={handleSubmitForm}>
             <TextInputDiv>
                 <InputLabel htmlFor="textInput">Enter Your Text:</InputLabel>
-                <Input required={true} id="textInput" placeholder="Your Text..." />
+                <Input onChange={(e)=> setText(e.target.value)} required={true} id="textInput" placeholder="Your Text..." />
             </TextInputDiv>
-
             <PickColorDiv>
                 <SelectColorDiv>
                     <TextInputDiv>
@@ -53,7 +54,7 @@ export const QrOptionsForm = () => {
                 <OrText>Or</OrText>
                 <TextInputDiv>
                     <InputLabel htmlFor="textInput">Hex Color Code:</InputLabel>
-                    <Input padding={1.1} placeholder="Hex Code (ex: FFFFFF)" maxLength={6} minLength={6}/>
+                    <Input onChange={(e)=> setHexCode(e.target.value)} padding={1.1} placeholder="Hex Code (ex: FFFFFF)" maxLength={6} minLength={6}/>
                 </TextInputDiv>
             </PickColorDiv>
             <SubmitButtonDiv>

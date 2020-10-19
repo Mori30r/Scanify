@@ -13,6 +13,8 @@ export default () => {
             <ParentDiv>
                 <Switch>
                     <Route path='/' component={GeneratePage} exact={true}/>
+                    <Route path='/info' component={GeneratePage}/>
+                    <Route path='/scan' component={GeneratePage}/>
                 </Switch>
                 <BottomNavigationBar/>
             </ParentDiv>

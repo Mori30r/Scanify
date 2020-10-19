@@ -1,9 +1,10 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import { ReactComponent as ReloadIcon } from "../../../assets/icons/reload.svg";
 
 import {GeneratedSection, GeneratedSectionInfo, QrImage, SuccessQRText} from "./GeneratePage.elements";
 import styled, {keyframes} from "styled-components";
 import {LoadingContext} from "../../context/LoadingContext";
+import {ImageContext} from "../../context/ImageContext";
 
 
 
@@ -30,6 +31,8 @@ const IconWrapper = styled.div`
 
 export const GeneratedDiv = () => {
     const { loading  } = useContext(LoadingContext);
+    const { image  } = useContext(ImageContext);
+
     const handleRenderPage = () => {
         if ( loading === 'off'){
             return (
@@ -55,11 +58,7 @@ export const GeneratedDiv = () => {
         }
     }
 
-    useEffect(()=>{
-        console.log(loading)
-    }, [loading]);
-
-    const url = `https://api.qrserver.com/v1/create-qr-code/?data=www.loremipsum.io/&bgcolor=FFFFFF&format=svg&qzone=8&margin=5&size=200x200`;
+    const url = `https://api.qrserver.com/v1/create-qr-code/?data=${image.text}&bgcolor=${ image.hex || image.color  }&format=svg&qzone=8&margin=5&size=200x200`;
     return (
         <GeneratedSection>
             <GeneratedSectionInfo>

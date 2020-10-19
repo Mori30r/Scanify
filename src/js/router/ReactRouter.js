@@ -5,23 +5,28 @@ import { BottomNavigationBar } from "../components/BottomNavigationBar/BottomNav
 import {ParentDiv} from "../styles/GlobalStyles";
 import {loadingReducer} from "../reducers/loadingReducer";
 import { LoadingContext } from "../context/LoadingContext";
+import {imageReducer} from "../reducers/imageReducer";
+import {ImageContext} from "../context/ImageContext";
 
 
 export default () => {
     const [loading, loadingDispatch] = useReducer(loadingReducer, 'off', undefined);
+    const [image, imageDispatch] = useReducer(imageReducer, { color: 'FFFFFF', text: 'Demo', hex: undefined }, undefined);
 
     return (
-        <LoadingContext.Provider value={{ loading, loadingDispatch }}>
-            <BrowserRouter>
-                <ParentDiv>
-                    <Switch>
-                        <Route path='/' component={GeneratePage} exact={true}/>
-                        <Route path='/info' component={GeneratePage}/>
-                        <Route path='/scan' component={GeneratePage}/>
-                    </Switch>
-                    <BottomNavigationBar/>
-                </ParentDiv>
-            </BrowserRouter>
-        </LoadingContext.Provider>
+        <ImageContext.Provider value={{ image, imageDispatch }}>
+            <LoadingContext.Provider value={{ loading, loadingDispatch}}>
+                <BrowserRouter>
+                    <ParentDiv>
+                        <Switch>
+                            <Route path='/' component={GeneratePage} exact={true}/>
+                            <Route path='/info' component={GeneratePage}/>
+                            <Route path='/scan' component={GeneratePage}/>
+                        </Switch>
+                        <BottomNavigationBar/>
+                    </ParentDiv>
+                </BrowserRouter>
+            </LoadingContext.Provider>
+        </ImageContext.Provider>
     )
 }

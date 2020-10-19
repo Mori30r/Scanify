@@ -11,6 +11,7 @@ import {
 import Select from "react-select";
 import {Button} from "../../styles/GlobalStyles";
 import {LoadingContext} from "../../context/LoadingContext";
+import {ImageContext} from "../../context/ImageContext";
 
 const options = [
     { value: 'ff7474', label: '🔴 Red' },
@@ -24,17 +25,12 @@ const options = [
 
 export const QrOptionsForm = () => {
 
-    const [text, setText] = useState(undefined);
-    const [hexCode, setHexCode] = useState(undefined);
-    const [selectedOption, setSelectedOption] = useState('');
-
-
     const { loadingDispatch  } = useContext(LoadingContext);
+    const { image, imageDispatch  } = useContext(ImageContext);
 
 
     const handleSubmitForm = (e) => {
         e.preventDefault();
-        e.target.reset();
         loadingDispatch({ type: 'LOADING' })
         setTimeout(()=>{
             loadingDispatch({ type: 'ON' })
@@ -46,7 +42,7 @@ export const QrOptionsForm = () => {
         <form onSubmit={handleSubmitForm}>
             <TextInputDiv>
                 <InputLabel htmlFor="textInput">Enter Your Text:</InputLabel>
-                <Input onChange={(e)=> setText(e.target.value)} required={true} id="textInput" placeholder="Your Text..." />
+                <Input onChange={(e)=> imageDispatch({ type: 'SET_TEXT', text: e.target.value })} required={true} id="textInput" placeholder="Your Text..." />
             </TextInputDiv>
             <PickColorDiv>
                 <SelectColorDiv>
@@ -55,15 +51,14 @@ export const QrOptionsForm = () => {
                         <Select
                             id="select"
                             options={options}
-                            value={selectedOption}
-                            onChange={(selected)=> setSelectedOption(selected)}
+                            onChange={(selected)=> imageDispatch({type: 'SET_COLOR', color: selected.value})}
                         />
                     </TextInputDiv>
                 </SelectColorDiv>
                 <OrText>Or</OrText>
                 <TextInputDiv>
                     <InputLabel htmlFor="textInput">Hex Color Code:</InputLabel>
-                    <Input onChange={(e)=> setHexCode(e.target.value)} padding={1.1} placeholder="Hex Code (ex: FFFFFF)" maxLength={6} minLength={6}/>
+                    <Input onChange={(e)=> imageDispatch({ type: 'SET_HEX', hex: e.target.value })} padding={1.1} placeholder="Hex Code (ex: FFFFFF)" maxLength={6} minLength={6}/>
                 </TextInputDiv>
             </PickColorDiv>
             <SubmitButtonDiv>

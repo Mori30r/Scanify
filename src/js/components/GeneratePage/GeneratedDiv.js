@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import { ReactComponent as ReloadIcon } from "../../../assets/icons/reload.svg";
 
 import {GeneratedSection, GeneratedSectionInfo, QrImage, SuccessQRText} from "./GeneratePage.elements";
 import styled, {keyframes} from "styled-components";
+import {LoadingContext} from "../../context/LoadingContext";
 
 
 
@@ -28,18 +29,41 @@ const IconWrapper = styled.div`
 
 
 export const GeneratedDiv = () => {
+    const { loading  } = useContext(LoadingContext);
+    const handleRenderPage = () => {
+        if ( loading === 'off'){
+            return (
+                <SuccessQRText>
+                    Use QR Options In Right Side &rarr;
+                </SuccessQRText>
+            );
+        } if (loading === 'loading'){
+            return (
+                <SuccessQRText>
+                    { loading && <IconWrapper><ReloadIcon/></IconWrapper>}
+                </SuccessQRText>
+            );
+        } if ( loading === 'on'){
+            return (
+                <>
+                    <QrImage url={url}/>
+                    <SuccessQRText>
+                        Qr Generated Successfully
+                    </SuccessQRText>
+                </>
+            )
+        }
+    }
+
+    useEffect(()=>{
+        console.log(loading)
+    }, [loading]);
+
     const url = `https://api.qrserver.com/v1/create-qr-code/?data=www.loremipsum.io/&bgcolor=FFFFFF&format=svg&qzone=8&margin=5&size=200x200`;
     return (
         <GeneratedSection>
             <GeneratedSectionInfo>
-                {/*<QrImage url={'url'}/>*/}
-                <SuccessQRText>
-                    <IconWrapper>
-                        <ReloadIcon/>
-                    </IconWrapper>
-                    {/*Use QR Options In Right Side &rarr;*/}
-                    {/*Qr Generated Successfully*/}
-                </SuccessQRText>
+                {handleRenderPage()}
             </GeneratedSectionInfo>
         </GeneratedSection>
     );

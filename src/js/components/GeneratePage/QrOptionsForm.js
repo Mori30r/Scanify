@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {
     Input,
     InputLabel,
@@ -10,6 +10,7 @@ import {
 } from "./GeneratePage.elements";
 import Select from "react-select";
 import {Button} from "../../styles/GlobalStyles";
+import {LoadingContext} from "../../context/LoadingContext";
 
 const options = [
     { value: 'ff7474', label: '🔴 Red' },
@@ -27,9 +28,17 @@ export const QrOptionsForm = () => {
     const [hexCode, setHexCode] = useState(undefined);
     const [selectedOption, setSelectedOption] = useState('');
 
+
+    const { loadingDispatch  } = useContext(LoadingContext);
+
+
     const handleSubmitForm = (e) => {
         e.preventDefault();
         e.target.reset();
+        loadingDispatch({ type: 'LOADING' })
+        setTimeout(()=>{
+            loadingDispatch({ type: 'ON' })
+        }, 2000);
     }
 
 

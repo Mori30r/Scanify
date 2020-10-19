@@ -128,6 +128,10 @@ export const InputLabel = styled.label`
 font-size: 1.25rem;
 font-weight: 600;
 color:${ props => props.theme["darkText"]};
-padding: 0 0 1rem 0;
-
+padding: 2.5rem 0 1rem 0;
+`;
+export const SubmitButtonDiv = styled.div`
+display: flex;
+justify-content: center;
+padding-top: 2.5rem;
 `;

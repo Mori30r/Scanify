@@ -6,6 +6,7 @@ import {
     QrOptionsSection, QrOptionsSectionHeading,
     Input, PickColorDiv, SelectColorDiv,
     OrText, TextInputDiv, InputLabel,
+    SubmitButtonDiv,
 } from "./GeneratePage.elements";
 import Select from "react-select";
 
@@ -45,29 +46,34 @@ export const GeneratePage = () => {
             <QrOptions>
                 <QrOptionsSection>
                     <QrOptionsSectionHeading>QR Code Options</QrOptionsSectionHeading>
+                    <form>
                     <TextInputDiv>
                         <InputLabel htmlFor="textInput">Enter Your Text:</InputLabel>
-                        <Input id="textInput" placeholder="Your Text..." />
+                        <Input required={true} id="textInput" placeholder="Your Text..." />
                     </TextInputDiv>
-                    <PickColorDiv>
-                        <SelectColorDiv>
+
+                        <PickColorDiv>
+                            <SelectColorDiv>
+                                <TextInputDiv>
+                                    <InputLabel htmlFor="select">Color:</InputLabel>
+                                    <Select
+                                        id="select"
+                                        options={options}
+                                        value={selectedOption}
+                                        onChange={(selected)=> setSelectedOption(selected)}
+                                    />
+                                </TextInputDiv>
+                            </SelectColorDiv>
+                            <OrText>Or</OrText>
                             <TextInputDiv>
-                                <InputLabel htmlFor="select">Background Color:</InputLabel>
-                                <Select
-                                    id="select"
-                                    options={options}
-                                    value={selectedOption}
-                                    onChange={(selected)=> setSelectedOption(selected)}
-                                />
+                                <InputLabel htmlFor="textInput">Hex Color Code:</InputLabel>
+                                <Input padding={1.1} placeholder="Hex Code (ex: #FFFFFF)" maxLength={7} minLength={6}/>
                             </TextInputDiv>
-                        </SelectColorDiv>
-                        <OrText>Or</OrText>
-                        <TextInputDiv>
-                            <InputLabel htmlFor="textInput">Hex Color Code:</InputLabel>
-                            <Input padding={1.1} placeholder="Hex Code (ex: #FFFFFF)" maxLength={7}/>
-                        </TextInputDiv>
-                    </PickColorDiv>
-                    <Button>Generate</Button>
+                        </PickColorDiv>
+                        <SubmitButtonDiv>
+                            <Button>Generate</Button>
+                        </SubmitButtonDiv>
+                    </form>
                 </QrOptionsSection>
             </QrOptions>
         </Generate>

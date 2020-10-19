@@ -27,7 +27,7 @@ font-size: 1.5rem;
 align-self: center;
 padding: 2rem;
 border-radius: 3rem;
-box-shadow: 0 0 4rem rgba(255, 116, 241, .6);
+box-shadow: 0 0 2rem rgba(255, 116, 241, .6);
 background-color: ${props => props.theme["secondaryColor"]};
 color: ${props => props.theme["lightText"]};
 border: none;
@@ -47,6 +47,6 @@ transform: translateY(-.5rem);
 transform: translateY(.2rem);
 -webkit-transform: translateY(.2rem);
 -moz-transform: translateY(.2rem) rotate(0.02deg);
-box-shadow: 0 0 5rem rgba(255, 116, 241, .8);
+box-shadow: 0 0 3rem rgba(255, 116, 241, .8);
 }
 `;

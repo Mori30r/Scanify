@@ -17,7 +17,7 @@ export const InfoPage = () => {
                     <a href="https://twitter.com/mori30r"><TwitterIcon style={socialIconStyle}/></a>
                     <a href="https://www.linkedin.com/in/morteza-sayar-a11112199/"><LinkedinIcon style={socialIconStyle}/></a>
                 </SocialIcons>
-                <LegalText>© 2020 Morteza Sayar All Rights Reserved</LegalText>
+                <LegalText>© 2020 Mori 30R All Rights Reserved</LegalText>
             </Section>
         </Generate>
     );

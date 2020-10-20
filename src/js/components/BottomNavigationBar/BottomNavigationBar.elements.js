@@ -24,6 +24,7 @@ background-color: ${ props => props.theme["secondaryColor"] };
 fill: ${ props => props.theme["lightText"]};
 border-radius: 50px;
 box-shadow: 0 0 2rem rgba(255, 116, 241, .8);
+outline: none;
 }
 `;
 

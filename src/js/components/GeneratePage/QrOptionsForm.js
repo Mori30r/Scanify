@@ -28,21 +28,24 @@ export const QrOptionsForm = () => {
     const { loadingDispatch  } = useContext(LoadingContext);
     const { image, imageDispatch  } = useContext(ImageContext);
 
+    const [text, setText] = useState('');
+    const [color, setColor] = useState('ffffff');
+    const [hex, setHex] = useState('');
 
     const handleSubmitForm = (e) => {
         e.preventDefault();
-        loadingDispatch({ type: 'LOADING' })
+        imageDispatch({ type: 'SET_IMAGE', color, text, hex });
+        loadingDispatch({ type: 'LOADING' });
         setTimeout(()=>{
             loadingDispatch({ type: 'ON' })
-        }, 2000);
+        }, 1500);
     }
-
 
     return (
         <form onSubmit={handleSubmitForm}>
             <TextInputDiv>
                 <InputLabel htmlFor="textInput">Enter Your Text:</InputLabel>
-                <Input onChange={(e)=> imageDispatch({ type: 'SET_TEXT', text: e.target.value })} required={true} id="textInput" placeholder="Your Text..." />
+                <Input onChange={(e)=> setText(e.target.value)} required={true} id="textInput" placeholder="Your Text..." />
             </TextInputDiv>
             <PickColorDiv>
                 <SelectColorDiv>
@@ -51,14 +54,14 @@ export const QrOptionsForm = () => {
                         <Select
                             id="select"
                             options={options}
-                            onChange={(selected)=> imageDispatch({type: 'SET_COLOR', color: selected.value})}
+                            onChange={(selected)=> setColor(selected.value)}
                         />
                     </TextInputDiv>
                 </SelectColorDiv>
                 <OrText>Or</OrText>
                 <TextInputDiv>
                     <InputLabel htmlFor="textInput">Hex Color Code:</InputLabel>
-                    <Input onChange={(e)=> imageDispatch({ type: 'SET_HEX', hex: e.target.value })} padding={1.1} placeholder="Hex Code (ex: FFFFFF)" maxLength={6} minLength={6}/>
+                    <Input onChange={(e)=> setHex(e.target.value)} padding={1.1} placeholder="Hex Code (ex: FFFFFF)" maxLength={6} minLength={6}/>
                 </TextInputDiv>
             </PickColorDiv>
             <SubmitButtonDiv>

@@ -1,5 +1,6 @@
 import React from "react";
 import styled, {createGlobalStyle} from "styled-components";
+import {device} from "./responsive";
 
 export const GlobalStyle = createGlobalStyle`
 *::before,
@@ -49,6 +50,11 @@ transform: translateY(.2rem);
 -moz-transform: translateY(.2rem) rotate(0.02deg);
 box-shadow: 0 0 3rem rgba(255, 116, 241, .8);
 }
+
+@media ${device.mobileSS}{
+font-size: 1rem;
+padding: 1rem;
+}
 `;
 
 export const ParentDiv = styled.div`
@@ -57,6 +63,14 @@ flex-direction: column;
 justify-content: space-around;
 height: 100vh;
 padding: 1rem;
+@media ${ device.mobileL }{
+flex-direction: row;
+margin: 1rem;
+height: 100vh;
+}
+@media ${device.mobileM}{
+margin: 3rem;
+}
 `;
 
 
@@ -67,7 +81,7 @@ export const iconStyle = {
 
 
 export const socialIconStyle = {
-    width: '12rem',
-    height: '12rem',
+    width: '10rem',
+    height: '10rem',
     outline: 'none'
 }

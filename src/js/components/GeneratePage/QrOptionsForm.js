@@ -63,7 +63,7 @@ export const QrOptionsForm = () => {
             <PickColorDiv>
                 <SelectColorDiv>
                     <TextInputDiv>
-                        <InputLabel htmlFor="select"><input type='radio' name='colorRadio' checked={selectOrHex === 'select'} onChange={changeRadio} value="select" defaultChecked={true} required={true} /> Color: ( default: white )  </InputLabel>
+                        <InputLabel htmlFor="select"><input type='radio' name='colorRadio' checked={selectOrHex === 'select'} onChange={changeRadio} value="select" defaultChecked={true} required={true} /> Color:</InputLabel>
                         <Select
                             required={true}
                             value={color}
@@ -76,8 +76,8 @@ export const QrOptionsForm = () => {
                 </SelectColorDiv>
                 <OrText>Or</OrText>
                 <TextInputDiv>
-                    <InputLabel htmlFor="textInput"><input type='radio' name='colorRadio' checked={selectOrHex === 'hex'} onChange={changeRadio} value="hex" /> Hex Color Code: (default: white)</InputLabel>
-                    <Input disabled={selectOrHex === 'select' && true} onChange={(e)=> setHex(e.target.value)} padding={1.1} placeholder="Hex Code (ex: FFFFFF)" maxLength={6} minLength={6}/>
+                    <InputLabel htmlFor="textInput"><input type='radio' name='colorRadio' checked={selectOrHex === 'hex'} onChange={changeRadio} value="hex" /> Hex:</InputLabel>
+                    <Input disabled={selectOrHex === 'select' && true} onChange={(e)=> setHex(e.target.value)} padding={1.1} placeholder="(ex: FFFFFF)" maxLength={6} minLength={6}/>
                 </TextInputDiv>
             </PickColorDiv>
             <SubmitButtonDiv>

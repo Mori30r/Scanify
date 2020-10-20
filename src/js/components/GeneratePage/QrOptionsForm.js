@@ -30,15 +30,15 @@ export const QrOptionsForm = () => {
     const { image, imageDispatch  } = useContext(ImageContext);
     const [text, setText] = useState('');
     const [color, setColor] = useState('ffffff');
-    const [hex, setHex] = useState('ffffff');
+    const [hex, setHex] = useState('');
     const [selectOrHex, setSelectOrHex] = useState('select');
 
 
     const handleSubmitForm = (e) => {
         e.preventDefault();
-        clearInputs();
-        e.target.reset()
         imageDispatch({ type: 'SET_IMAGE', color: color.value, text, hex });
+        e.target.reset()
+        clearInputs();
         loadingDispatch({ type: 'LOADING' });
         setTimeout(()=>{
             loadingDispatch({ type: 'ON' })
@@ -51,7 +51,7 @@ export const QrOptionsForm = () => {
     const clearInputs = ()=>{
         setText('');
         setHex('ffffff');
-        setColor('ffffff');
+        setColor('');
     }
 
     return (

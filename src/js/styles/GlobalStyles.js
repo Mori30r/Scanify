@@ -58,3 +58,16 @@ justify-content: space-around;
 height: 100vh;
 padding: 1rem;
 `;
+
+
+export const iconStyle = {
+    width: '2.5rem',
+    height: '2.5rem',
+}
+
+
+export const socialIconStyle = {
+    width: '12rem',
+    height: '12rem',
+    outline: 'none'
+}

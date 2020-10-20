@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import { ReactComponent as ReloadIcon } from "../../../assets/icons/reload.svg";
 
-import {GeneratedSection, GeneratedSectionInfo, QrImage, SuccessQRText} from "./GeneratePage.elements";
+import {Section, GeneratedSectionInfo, QrImage, SuccessQRText} from "./GeneratePage.elements";
 import styled, {keyframes} from "styled-components";
 import {LoadingContext} from "../../context/LoadingContext";
 import {ImageContext} from "../../context/ImageContext";
@@ -58,12 +58,12 @@ export const GeneratedDiv = () => {
         }
     }
 
-    const url = `https://api.qrserver.com/v1/create-qr-code/?data=${image.text}&bgcolor=${ image.hex || image.color  }&format=svg&qzone=8&margin=5&size=200x200`;
+    const url = `https://api.qrserver.com/v1/create-qr-code/?data=${image.text}&bgcolor=${ image.hex ? image.hex : image.color  }&format=svg&qzone=8&margin=5&size=200x200`;
     return (
-        <GeneratedSection>
+        <Section>
             <GeneratedSectionInfo>
                 {handleRenderPage()}
             </GeneratedSectionInfo>
-        </GeneratedSection>
+        </Section>
     );
 };

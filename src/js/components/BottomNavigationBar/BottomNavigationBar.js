@@ -7,12 +7,9 @@ import { BottomNavigation,
 } from "./BottomNavigationBar.elements";
 import { ReactComponent as InfoIcon  } from "../../../assets/icons/info.svg";
 import { ReactComponent as QRIcon  } from "../../../assets/icons/qr.svg";
-import { ReactComponent as ScanIcon  } from "../../../assets/icons/scan.svg";
+import {iconStyle} from "../../styles/GlobalStyles";
 
-export const iconStyle = {
-    width: '2.5rem',
-    height: '2.5rem',
-}
+
 
 export const BottomNavigationBar = () => {
     return (
@@ -29,13 +26,6 @@ export const BottomNavigationBar = () => {
                     <NavLinkStyled to='/' activeClassName='active' exact={true} >
                         <BottomNavigationIconsItemDiv>
                             <QRIcon style={iconStyle}/>
-                        </BottomNavigationIconsItemDiv>
-                    </NavLinkStyled>
-                </BottomNavigationIconsItem>
-                <BottomNavigationIconsItem>
-                    <NavLinkStyled to='/scan' activeClassName='active' exact={true}>
-                        <BottomNavigationIconsItemDiv>
-                            <ScanIcon style={iconStyle}/>
                         </BottomNavigationIconsItemDiv>
                     </NavLinkStyled>
                 </BottomNavigationIconsItem>

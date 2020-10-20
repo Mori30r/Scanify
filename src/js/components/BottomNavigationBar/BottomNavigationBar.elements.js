@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 
 export const BottomNavigation = styled.nav`
 background-color: white;
-margin: 0 40rem;
+margin: 0 45rem;
 border-radius: 3rem;
 `;
 

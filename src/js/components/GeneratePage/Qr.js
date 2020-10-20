@@ -1,12 +1,12 @@
 import React from 'react';
-import {QrOptions, QrOptionsSection, QrOptionsSectionHeading} from "./GeneratePage.elements";
+import {QrOptions, QrOptionsSection, Heading} from "./GeneratePage.elements";
 import {QrOptionsForm} from "./QrOptionsForm";
 
 export const Qr = () => {
     return (
         <QrOptions>
             <QrOptionsSection>
-                <QrOptionsSectionHeading>QR Code Options</QrOptionsSectionHeading>
+                <Heading Animated>QR Code Options</Heading>
                 <QrOptionsForm/>
             </QrOptionsSection>
         </QrOptions>

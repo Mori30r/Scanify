@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 export const Generate = styled.div`
 height: 80vh;
@@ -7,11 +7,12 @@ display: flex;
 justify-content: space-around;
 `;
 
-export const GeneratedSection = styled.div`
+export const Section = styled.div`
 background-color: ${props => props.theme["primaryColorLight"]};
 border-radius: 3rem;
-flex: 0 0 60%;
 display: flex;
+flex: ${ props => props.large ? '1' : '0 0 60%' };
+flex-direction: column;
 justify-content: center;
 align-items: center;
 `;
@@ -59,11 +60,11 @@ flex-direction: column;
 justify-content: space-evenly;
 padding: 0 2rem;
 `;
-export const QrOptionsSectionHeading = styled.div`
+export const Heading = styled.div`
 text-align: center;
 font-size: 2rem;
 color: ${ props => props.theme["darkText"]};
-background-color: ${ props => props.theme["lightText"]};
+background-color: ${ props => props.notBorder ? 'none' : props.theme["lightText"]  };
 font-weight: 600;
 border-radius: 3rem;
 padding: 2rem;
@@ -71,11 +72,13 @@ width: 60%;
 margin: 0 auto;
 transition: all .1s;
 backface-visibility: hidden;
-
+${ props => props.Animated && css`
 &:hover{
 transform: rotate(-2deg);
 box-shadow: 0 0 2rem rgba(57, 57, 57, .2);
 }
+`}
+
 `;
 export const Input = styled.input`
 outline: none;

@@ -13,6 +13,7 @@ import {Button} from "../../styles/GlobalStyles";
 import {LoadingContext} from "../../context/LoadingContext";
 import {ImageContext} from "../../context/ImageContext";
 
+
 const options = [
     { value: 'ff7474', label: '🔴 Red' },
     { value: 'ffd187', label: '🟡 Yellow' },
@@ -27,10 +28,9 @@ export const QrOptionsForm = () => {
 
     const { loadingDispatch  } = useContext(LoadingContext);
     const { image, imageDispatch  } = useContext(ImageContext);
-
     const [text, setText] = useState('');
     const [color, setColor] = useState('ffffff');
-    const [hex, setHex] = useState('');
+    const [hex, setHex] = useState('ffffff');
     const [selectOrHex, setSelectOrHex] = useState('select');
 
 
@@ -38,7 +38,6 @@ export const QrOptionsForm = () => {
         e.preventDefault();
         clearInputs();
         e.target.reset()
-
         imageDispatch({ type: 'SET_IMAGE', color: color.value, text, hex });
         loadingDispatch({ type: 'LOADING' });
         setTimeout(()=>{
@@ -51,7 +50,7 @@ export const QrOptionsForm = () => {
 
     const clearInputs = ()=>{
         setText('');
-        setHex('');
+        setHex('ffffff');
         setColor('ffffff');
     }
 
@@ -64,8 +63,9 @@ export const QrOptionsForm = () => {
             <PickColorDiv>
                 <SelectColorDiv>
                     <TextInputDiv>
-                        <InputLabel htmlFor="select"><input type='radio' name='colorRadio' checked={selectOrHex === 'select'} onChange={changeRadio} value="select" defaultChecked={true} required={true} /> Color:  </InputLabel>
+                        <InputLabel htmlFor="select"><input type='radio' name='colorRadio' checked={selectOrHex === 'select'} onChange={changeRadio} value="select" defaultChecked={true} required={true} /> Color: ( default: white )  </InputLabel>
                         <Select
+                            required={true}
                             value={color}
                             isDisabled={selectOrHex === 'hex' && true}
                             id="select"
@@ -76,7 +76,7 @@ export const QrOptionsForm = () => {
                 </SelectColorDiv>
                 <OrText>Or</OrText>
                 <TextInputDiv>
-                    <InputLabel htmlFor="textInput"><input type='radio' name='colorRadio' checked={selectOrHex === 'hex'} onChange={changeRadio} value="hex" /> Hex Color Code: (optional)</InputLabel>
+                    <InputLabel htmlFor="textInput"><input type='radio' name='colorRadio' checked={selectOrHex === 'hex'} onChange={changeRadio} value="hex" /> Hex Color Code: (default: white)</InputLabel>
                     <Input disabled={selectOrHex === 'select' && true} onChange={(e)=> setHex(e.target.value)} padding={1.1} placeholder="Hex Code (ex: FFFFFF)" maxLength={6} minLength={6}/>
                 </TextInputDiv>
             </PickColorDiv>

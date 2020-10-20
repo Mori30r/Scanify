@@ -81,13 +81,13 @@ export const Input = styled.input`
 outline: none;
 text-align: center;
 font-family: 'Open Sans',sans-serif;
-background-color: ${ props => props.theme["lightText"]};
-color: ${ props => props.theme["darkText"]};
+background-color: ${props => props.theme["lightText"]};
+color: ${props => props.theme["darkText"]};
 border:none;
 border-radius: 2rem;
 transition: all .2s;
-padding: ${(props)=>{
-    if(props.padding){
+padding: ${(props) => {
+    if (props.padding) {
         return `${props.padding}rem`;
     } else {
         return `2rem`;
@@ -95,13 +95,16 @@ padding: ${(props)=>{
 }};
 ::placeholder,
 ::-webkit-input-placeholder {
-color: ${ props => props.theme["thinText"]};
+color: ${props => props.theme["thinText"]};
 }
 :-ms-input-placeholder {
-color: ${ props => props.theme["thinText"]};
+color: ${props => props.theme["thinText"]};
 }
 &:focus{
 transform: scale(.9);
+}
+&:disabled{
+background-color: #F2F2F2;
 }
 `;
 export const PickColorDiv = styled.div`

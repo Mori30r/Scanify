@@ -31,14 +31,28 @@ export const QrOptionsForm = () => {
     const [text, setText] = useState('');
     const [color, setColor] = useState('ffffff');
     const [hex, setHex] = useState('');
+    const [selectOrHex, setSelectOrHex] = useState('select');
+
 
     const handleSubmitForm = (e) => {
         e.preventDefault();
-        imageDispatch({ type: 'SET_IMAGE', color, text, hex });
+        clearInputs();
+        e.target.reset()
+
+        imageDispatch({ type: 'SET_IMAGE', color: color.value, text, hex });
         loadingDispatch({ type: 'LOADING' });
         setTimeout(()=>{
             loadingDispatch({ type: 'ON' })
         }, 1500);
+    }
+    const changeRadio = (e) => {
+        setSelectOrHex(e.target.value);
+    }
+
+    const clearInputs = ()=>{
+        setText('');
+        setHex('');
+        setColor('ffffff');
     }
 
     return (
@@ -50,18 +64,20 @@ export const QrOptionsForm = () => {
             <PickColorDiv>
                 <SelectColorDiv>
                     <TextInputDiv>
-                        <InputLabel htmlFor="select">Color:</InputLabel>
+                        <InputLabel htmlFor="select"><input type='radio' name='colorRadio' checked={selectOrHex === 'select'} onChange={changeRadio} value="select" defaultChecked={true} required={true} /> Color:  </InputLabel>
                         <Select
+                            value={color}
+                            isDisabled={selectOrHex === 'hex' && true}
                             id="select"
                             options={options}
-                            onChange={(selected)=> setColor(selected.value)}
+                            onChange={(selected)=> setColor(selected)}
                         />
                     </TextInputDiv>
                 </SelectColorDiv>
                 <OrText>Or</OrText>
                 <TextInputDiv>
-                    <InputLabel htmlFor="textInput">Hex Color Code:</InputLabel>
-                    <Input onChange={(e)=> setHex(e.target.value)} padding={1.1} placeholder="Hex Code (ex: FFFFFF)" maxLength={6} minLength={6}/>
+                    <InputLabel htmlFor="textInput"><input type='radio' name='colorRadio' checked={selectOrHex === 'hex'} onChange={changeRadio} value="hex" /> Hex Color Code: (optional)</InputLabel>
+                    <Input disabled={selectOrHex === 'select' && true} onChange={(e)=> setHex(e.target.value)} padding={1.1} placeholder="Hex Code (ex: FFFFFF)" maxLength={6} minLength={6}/>
                 </TextInputDiv>
             </PickColorDiv>
             <SubmitButtonDiv>

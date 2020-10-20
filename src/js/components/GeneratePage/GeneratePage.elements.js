@@ -119,6 +119,8 @@ export const SelectColorDiv = styled.div`
 flex: 1;
 `;
 export const OrText = styled.div`
+display: flex;
+align-self: flex-end;
 padding: 0 2rem;
 text-align: center;
 font-size: 2rem;

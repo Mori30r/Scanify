@@ -8,6 +8,7 @@ import { LoadingContext } from "../context/LoadingContext";
 import {imageReducer} from "../reducers/imageReducer";
 import {ImageContext} from "../context/ImageContext";
 import {InfoPage} from "../components/InfoPage/InfoPage";
+import {NotFoundPage} from "../components/NotFoundPage/NotFoundPage";
 
 
 export default () => {
@@ -22,6 +23,7 @@ export default () => {
                         <Switch>
                             <Route path='/' component={GeneratePage} exact={true}/>
                             <Route path='/info' component={InfoPage}/>
+                            <Route component={NotFoundPage}/>
                         </Switch>
                         <BottomNavigationBar/>
                     </ParentDiv>

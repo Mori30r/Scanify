@@ -52,7 +52,7 @@ height: 25rem;
 
 `;
 
-export const SuccessQRText = styled.p`
+export const SuccessQRText = styled.div`
 padding-top: 3rem;
 text-align: center;
 font-size: 2rem;

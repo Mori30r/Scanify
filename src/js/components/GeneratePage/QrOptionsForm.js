@@ -36,7 +36,9 @@ export const QrOptionsForm = () => {
 
     const handleSubmitForm = (e) => {
         e.preventDefault();
+        console.log(image);
         imageDispatch({ type: 'SET_IMAGE', color: color.value, text, hex });
+        console.log(image);
         e.target.reset()
         clearInputs();
         loadingDispatch({ type: 'LOADING' });
@@ -50,7 +52,7 @@ export const QrOptionsForm = () => {
 
     const clearInputs = ()=>{
         setText('');
-        setHex('ffffff');
+        setHex('');
         setColor('');
     }
 
@@ -63,7 +65,7 @@ export const QrOptionsForm = () => {
             <PickColorDiv>
                 <SelectColorDiv>
                     <TextInputDiv>
-                        <InputLabel htmlFor="select"><input type='radio' name='colorRadio' checked={selectOrHex === 'select'} onChange={changeRadio} value="select" defaultChecked={true} required={true} /> Color:</InputLabel>
+                        <InputLabel htmlFor="select"><input type='radio' name='colorRadio' checked={selectOrHex === 'select'} onChange={changeRadio} value="select" required={true} /> Color:</InputLabel>
                         <Select
                             required={true}
                             value={color}
@@ -76,7 +78,7 @@ export const QrOptionsForm = () => {
                 </SelectColorDiv>
                 <OrText>Or</OrText>
                 <TextInputDiv>
-                    <InputLabel htmlFor="textInput"><input type='radio' name='colorRadio' checked={selectOrHex === 'hex'} onChange={changeRadio} value="hex" /> Hex:</InputLabel>
+                    <InputLabel htmlFor="textInput"><input type='radio' name='colorRadio' onChange={changeRadio} value="hex" /> Hex:</InputLabel>
                     <Input disabled={selectOrHex === 'select' && true} onChange={(e)=> setHex(e.target.value)} padding={1.1} placeholder="(ex: FFFFFF)" maxLength={6} minLength={6}/>
                 </TextInputDiv>
             </PickColorDiv>

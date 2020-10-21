@@ -5,12 +5,13 @@ export const imageReducer = (state, action) => {
                 ...state,
                 color: action.color,
                 hex: action.hex,
-                text: action.text
+                text: action.text,
+                hexOrSelect: action.hexOrSelect
             }
         case 'RESET':
             return {
                 ...state,
-                color: 'ffffff',
+                color: undefined,
                 text: undefined,
                 hex: undefined
             }

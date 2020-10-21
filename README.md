@@ -1,19 +1,17 @@
 
 ## **scanify**
 
-hey :) This is a QR Code Scanner and Generator with React using Styled Components .
+Hey 😄 This is a QR Code Creator with React using Styled Components 💅 .
+
+If you find any tips, please share them with me and let me know what can be improved 😉.
+## 💻 **Screenshot** :
+ 
+![Scanify](https://img.techpowerup.org/201021/screenshot-2020-10-21-scanify.png)
 
 ### **Installation**
 
-first clone my repository:
 ```
 git clone https://github.com/Mori30r/Scanify/
-```
-then in project directory run this command to install libraries:
-```
 yarn install
-```
-then you can use this command to run project in you localhost:
-```
 yarn start
 ```

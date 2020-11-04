@@ -54,6 +54,11 @@ export const GeneratedDiv = () => {
                     <SuccessQRText>
                         Qr Generated Successfully
                     </SuccessQRText>
+                    <SuccessQRText>
+                        <a href={url} download={true}>
+                            Download Image
+                        </a>
+                    </SuccessQRText>
                 </>
             )
         }

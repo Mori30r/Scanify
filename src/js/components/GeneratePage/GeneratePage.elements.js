@@ -59,6 +59,7 @@ font-size: 2rem;
 line-height: 3rem;
 font-weight: 600;
 color: ${ props => props.theme["darkText"] };
+text-decoration: none;
 `;
 
 export const QrOptions = styled.div`

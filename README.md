@@ -1,5 +1,5 @@
 
-## **scanify**
+## **Scanify**
 
 Hey 😄 This is a QR Code Creator with React using Styled Components 💅 .
 
